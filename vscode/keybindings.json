@@ -1,0 +1,37 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "alt+s alt+p",
+        "command": "workbench.action.splitEditorDown"
+    },
+    {
+        "key": "alt+v alt+s",
+        "command": "workbench.action.splitEditorRight"
+    },
+    {
+        "key": "cmd+w",
+        "command": "-delphiKeybindings.selectWord"
+    },
+    {
+        "key": "cmd+t cmd+p",
+        "command": "go.test.package"
+    },
+    {
+        "key": "shift+cmd+r",
+        "command": "editor.action.rename",
+        "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "f2",
+        "command": "-editor.action.rename",
+        "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+a cmd+s",
+        "command": "importMagic.resolveImport"
+    },
+    {
+        "key": "alt+f",
+        "command": "python.sortImports"
+    }
+]
