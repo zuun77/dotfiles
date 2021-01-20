@@ -120,13 +120,20 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 alias lg='lazygit'
 
-alias vtd="ssh -i ~/dev/fds.pem centos@10.0.7.50"
-alias vtp="ssh -i ~/dev/fds.pem centos@fds.kasa.network"
-alias zk="ssh -i ~/dev/fds.pem ubuntu@10.0.10.51"
-alias z="ssh -i ~/dev/zuun_personal.pem ubuntu@13.124.113.25"
-
 
 export TERM=xterm-256color
 
 [[ -s "/Users/zuun/.gvm/scripts/gvm" ]] && source "/Users/zuun/.gvm/scripts/gvm"
-source .bash_profile
+source ~/.bash_profile
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+
+export PIPENV_VENV_IN_PROJECT=true
+
+export DRONE_SERVER=https://drone.kr.kasa.works
+export DRONE_TOKEN=r4ctawR1RMCus6K1FVhsZGagfCAmGk0v
+
+alias devi="influx -host 10.77.103.94"
+alias stagi="influx -host 10.124.103.61"
+alias genorders="pipenv run kasa/manage.py gen_orders"
+
+export PATH=$PATH:/Users/zuun/dev/flutter/bin

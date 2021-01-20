@@ -152,3 +152,40 @@ alias vbp='vi ~/.bash_profile'
 # DIRs
 alias dev='cd ~/dev'
 alias leet='cd ~/dev/givemegoogletshirts/leetcode/python'
+
+# KasaAPI
+alias rk='pipenv run kasa/manage.py runserver 0:8000'
+alias cm='
+find . -path "*/kasa/*/migrations/*.py" -not -name "__init__.py" -delete
+find . -path "*/kasa/*/migrations/*.pyc" -delete
+pipenv run kasa/manage.py makemigrations'
+alias ki='
+pipenv run kasa/manage.py migrate
+pipenv run kasa/manage.py loaddata kasa/services/common/fixtures.yaml
+pipenv run kasa/manage.py createinitialrevisions'
+alias tk='pipenv run kasa/manage.py test'
+
+# Trading Engine
+alias rte='make watch'
+alias deploy-staging='git tag -a v$(date '+%Y.%-m.%-d')-$(git rev-parse --short HEAD) -m '
+alias dev-env="cd ~/dev/k8s-manifests/clusters/dev/apps/"
+
+# FDS surveillance
+alias vtd="ssh -i ~/dev/fds.pem centos@fds-dev.kasa.network"
+alias vtp="ssh -i ~/dev/fds.pem centos@fds.kasa.network"
+
+# TEME Redis
+alias rdev="redis-cli -h redis-16341.internal.c9817.ap-northeast-2-mz.ec2.cloud.rlrcp.com -p 16341 -a zn4Uczbfb8NBUsbzW7celmOHgJFGSSFW"
+alias rsta="redis-cli -h redis-16317.internal.c9817.ap-northeast-2-mz.ec2.cloud.rlrcp.com -p 16317 -a 6nMkKxdJbj6za3iONdrsfak9Ea1DYvlx --tls --cacert ~/Downloads/redislabs_ca.pem"
+alias rper="redis-cli -h redis-10427.internal.c9817.ap-northeast-2-mz.ec2.cloud.rlrcp.com -p 10427 -a ERlTB8trIfOHR6ERYkMJIF5yrFZle8IB --tls --cacert ~/Downloads/redislabs_ca.pem"
+alias rpro="redis-cli -h redis-14696.internal.c9817.ap-northeast-2-mz.ec2.cloud.rlrcp.com -p 14696 -a NFErWmC6KdRODrqfS0FI12HWKgNGi1T1 --tls --cacert ~/Downloads/redislabs_ca.pem"
+
+# TEME Kafka
+alias reset-kafka-perf="kafka-consumer-groups --bootstrap-server b-1.ops.9wyv2b.c3.kafka.ap-northeast-2.amazonaws.com:9092 --topic queue.kasa-exchange-perf.memsg --reset-offsets --to-latest --execute --group memsg-trading-engine-perf"
+alias reset-kafka-staging="kafka-consumer-groups --bootstrap-server b-1.ops.9wyv2b.c3.kafka.ap-northeast-2.amazonaws.com:9092 --topic queue.kasa-exchange-staging.memsg --reset-offsets --to-latest --execute --group memsg-trading-engine-staging"
+
+# T-Box
+alias tbox="ssh -i ~/dev/tbox.pem ec2-user@ec2-54-251-250-89.ap-southeast-1.compute.amazonaws.com"
+# Stress test
+alias stt="ssh -i ~/dev/stress-test.pem ubuntu@13.125.234.146"
+
